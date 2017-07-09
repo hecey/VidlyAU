@@ -20,6 +20,12 @@ namespace VidlyAU.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Customer> Customers { set; get; }
+        public DbSet<Movie> Movies { set; get; }
+        public DbSet<MembershipType> MembershipType { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

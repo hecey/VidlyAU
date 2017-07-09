@@ -1,0 +1,35 @@
+﻿@model IEnumerable<VidlyAU.Models.Customer>
+@{
+    ViewBag.Title = "Customers";
+}
+
+<h2>Customers</h2>
+<p>
+    @Html.ActionLink("New Customer", "New", null, new { @class = "btn btn-primary btn-lg" })
+</p>
+@if (!Model.Any())
+{
+    <text>There is no customer in the database yet.</text>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Customers</th>
+                <th>Discount Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customers in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(customers.Name, "Edit", "Customers", new { id = customers.Id }, null)</td>
+                    <td>@customers.MembershipType.DiscountRate%</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+

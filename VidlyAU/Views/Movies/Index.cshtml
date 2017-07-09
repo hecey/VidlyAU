@@ -1,0 +1,35 @@
+﻿@model IEnumerable<VidlyAU.Models.Movie>
+@{
+    ViewBag.Title = "Movies";
+}
+
+<h2>Movies</h2>
+<p>
+    @Html.ActionLink("New Movie", "New", null, new { @class = "btn btn-primary btn-lg" })
+</p>
+@if (!Model.Any())
+{
+    <text>There is no movie in the database yet.</text>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Movies</th>
+                <th>Genres</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Movie in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(Movie.Name, "Edit", "Movies", new { id = Movie.Id }, null)</td>
+                    <td>@Movie.Genres.Name </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+

@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -52,12 +55,21 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -186,21 +198,86 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\API\CustomersController.cs" />
+    <Compile Include="Controllers\API\MoviesController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="DTOs\CustomerDto.cs" />
+    <Compile Include="DTOs\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707042216053_Initial.cs" />
+    <Compile Include="Migrations\201707042216053_Initial.Designer.cs">
+      <DependentUpon>201707042216053_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707042219436_PopulateMembershipType.cs" />
+    <Compile Include="Migrations\201707042219436_PopulateMembershipType.Designer.cs">
+      <DependentUpon>201707042219436_PopulateMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707051818579_addCustomerName.cs" />
+    <Compile Include="Migrations\201707051818579_addCustomerName.Designer.cs">
+      <DependentUpon>201707051818579_addCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707051855595_NameMembershipType.cs" />
+    <Compile Include="Migrations\201707051855595_NameMembershipType.Designer.cs">
+      <DependentUpon>201707051855595_NameMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707051856510_populateMembershipTypeName.cs" />
+    <Compile Include="Migrations\201707051856510_populateMembershipTypeName.Designer.cs">
+      <DependentUpon>201707051856510_populateMembershipTypeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707051915374_addBirthdateCustomers.cs" />
+    <Compile Include="Migrations\201707051915374_addBirthdateCustomers.Designer.cs">
+      <DependentUpon>201707051915374_addBirthdateCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707051956533_AddGenresTBandRelationToMovies.cs" />
+    <Compile Include="Migrations\201707051956533_AddGenresTBandRelationToMovies.Designer.cs">
+      <DependentUpon>201707051956533_AddGenresTBandRelationToMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707052015240_AddGenresTBandRelationToMovies1.cs" />
+    <Compile Include="Migrations\201707052015240_AddGenresTBandRelationToMovies1.Designer.cs">
+      <DependentUpon>201707052015240_AddGenresTBandRelationToMovies1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707052017099_AddGenresTBandRelationToMovies2.cs" />
+    <Compile Include="Migrations\201707052017099_AddGenresTBandRelationToMovies2.Designer.cs">
+      <DependentUpon>201707052017099_AddGenresTBandRelationToMovies2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707052017587_PopulateGenres.cs" />
+    <Compile Include="Migrations\201707052017587_PopulateGenres.Designer.cs">
+      <DependentUpon>201707052017587_PopulateGenres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707052026136_fixIdGenres.cs" />
+    <Compile Include="Migrations\201707052026136_fixIdGenres.Designer.cs">
+      <DependentUpon>201707052026136_fixIdGenres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707081744092_FixNameModels.cs" />
+    <Compile Include="Migrations\201707081744092_FixNameModels.Designer.cs">
+      <DependentUpon>201707081744092_FixNameModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsIfAMember.cs" />
+    <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -257,6 +334,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -275,6 +359,44 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201707042216053_Initial.resx">
+      <DependentUpon>201707042216053_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707042219436_PopulateMembershipType.resx">
+      <DependentUpon>201707042219436_PopulateMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707051818579_addCustomerName.resx">
+      <DependentUpon>201707051818579_addCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707051855595_NameMembershipType.resx">
+      <DependentUpon>201707051855595_NameMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707051856510_populateMembershipTypeName.resx">
+      <DependentUpon>201707051856510_populateMembershipTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707051915374_addBirthdateCustomers.resx">
+      <DependentUpon>201707051915374_addBirthdateCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707051956533_AddGenresTBandRelationToMovies.resx">
+      <DependentUpon>201707051956533_AddGenresTBandRelationToMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707052015240_AddGenresTBandRelationToMovies1.resx">
+      <DependentUpon>201707052015240_AddGenresTBandRelationToMovies1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707052017099_AddGenresTBandRelationToMovies2.resx">
+      <DependentUpon>201707052017099_AddGenresTBandRelationToMovies2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707052017587_PopulateGenres.resx">
+      <DependentUpon>201707052017587_PopulateGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707052026136_fixIdGenres.resx">
+      <DependentUpon>201707052026136_fixIdGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707081744092_FixNameModels.resx">
+      <DependentUpon>201707081744092_FixNameModels.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
