@@ -209,10 +209,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
-    <Compile Include="DTOs\CustomerDto.cs" />
-    <Compile Include="DTOs\GenreDto.cs" />
-    <Compile Include="DTOs\MembershipTypeDto.cs" />
-    <Compile Include="DTOs\MovieDto.cs" />
+    <Compile Include="Dtos\CustomerDto.cs" />
+    <Compile Include="Dtos\GenreDto.cs" />
+    <Compile Include="Dtos\MembershipTypeDto.cs" />
+    <Compile Include="Dtos\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -271,6 +271,10 @@
     <Compile Include="Migrations\201707101756534_SeedUser.cs" />
     <Compile Include="Migrations\201707101756534_SeedUser.Designer.cs">
       <DependentUpon>201707101756534_SeedUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707101825534_AddDrivingLicenseToApplicationUser.cs" />
+    <Compile Include="Migrations\201707101825534_AddDrivingLicenseToApplicationUser.Designer.cs">
+      <DependentUpon>201707101825534_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -589,6 +593,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707101756534_SeedUser.resx">
       <DependentUpon>201707101756534_SeedUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707101825534_AddDrivingLicenseToApplicationUser.resx">
+      <DependentUpon>201707101825534_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
