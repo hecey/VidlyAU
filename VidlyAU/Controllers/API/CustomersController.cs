@@ -7,6 +7,7 @@ using System.Web.Http;
 using AutoMapper;
 using VidlyAU.DTOs;
 using VidlyAU.Models;
+using System.Data.Entity;
 
 namespace VidlyAU.Controllers.API
 {
@@ -21,9 +22,14 @@ namespace VidlyAU.Controllers.API
             
         }
         //GET /api/customers
-        public IEnumerable<CustomerDto> GetCustomers()
+        public IHttpActionResult GetCustomers()
         {
-            return _context.Customers.ToList().Select(Mapper.Map<Customer , CustomerDto>);
+            var customerDtos = _context.Customers
+                .Include(c => c.MembershipType)
+                .ToList()
+                .Select(Mapper.Map<Customer, CustomerDto>);
+
+            return Ok(customerDtos);
 
         }
 
