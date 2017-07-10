@@ -54,9 +54,9 @@ namespace VidlyAU
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1739579063002166",
+               appSecret: "2307eb5f11539a25d6fde4ae3ab323c1");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
