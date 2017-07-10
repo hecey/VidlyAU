@@ -210,6 +210,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="DTOs\CustomerDto.cs" />
+    <Compile Include="DTOs\GenreDto.cs" />
     <Compile Include="DTOs\MembershipTypeDto.cs" />
     <Compile Include="DTOs\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
@@ -262,6 +263,10 @@
     <Compile Include="Migrations\201707081744092_FixNameModels.cs" />
     <Compile Include="Migrations\201707081744092_FixNameModels.Designer.cs">
       <DependentUpon>201707081744092_FixNameModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707101659074_genreName.cs" />
+    <Compile Include="Migrations\201707101659074_genreName.Designer.cs">
+      <DependentUpon>201707101659074_genreName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -572,6 +577,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707081744092_FixNameModels.resx">
       <DependentUpon>201707081744092_FixNameModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707101659074_genreName.resx">
+      <DependentUpon>201707101659074_genreName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

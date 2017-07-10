@@ -27,8 +27,9 @@ namespace VidlyAU.DTOs
         public int NumberInStock { get; set; }
 
         //public Genre Genres { get; set; }
+        public GenreDto Genre { get; set; }
 
         //[Display(Name = "Genre")]
-        public byte GenresId { get; set; }
+        public byte GenreId { get; set; }
     }
 }

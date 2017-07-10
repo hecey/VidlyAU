@@ -55,7 +55,7 @@ namespace VidlyAU.ViewModels
             Name = movie.Name;
             ReleaseDate = movie.ReleaseDate;
             NumberInStock = movie.NumberInStock;
-            GenresId = movie.GenresId;
+            GenresId = movie.GenreId;
         }
     }
 }

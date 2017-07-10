@@ -25,10 +25,10 @@ namespace VidlyAU.Models
         [Range(1,20)]
         public int NumberInStock { get; set; }
 
-        public Genre Genres { get; set; }
+        public Genre Genre { get; set; }
 
         [Display(Name = "Genre")]
-        public byte GenresId { get; set; }
+        public byte GenreId { get; set; }
 
     }
 }

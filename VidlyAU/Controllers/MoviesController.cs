@@ -60,7 +60,7 @@ namespace VidlyAU.Controllers
                 movieInDb.Name = movie.Name;
                 movieInDb.NumberInStock = movie.NumberInStock;
                 movieInDb.ReleaseDate = movie.ReleaseDate;
-                movieInDb.GenresId = movie.GenresId;
+                movieInDb.GenreId = movie.GenreId;
                 
 
             }
@@ -82,13 +82,13 @@ namespace VidlyAU.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            var movies = _context.Movies.Include(c => c.Genres).ToList();
-            return View(movies);
+            //var movies = _context.Movies.Include(c => c.Genres).ToList();
+            return View();
         }
 
         public ActionResult Details(int Id)
         {
-            var movies = _context.Movies.Include(c => c.Genres).ToList().SingleOrDefault(c => c.Id == Id);
+            var movies = _context.Movies.Include(c => c.Genre).ToList().SingleOrDefault(c => c.Id == Id);
             return View(movies);
         }
 
