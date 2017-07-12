@@ -21,9 +21,20 @@ namespace VidlyAU.Controllers.API
         }
 
         // GET /api/movies
-        public IHttpActionResult GetMovies()
+        public IHttpActionResult GetMovies(string query = null)
         {
-            return Ok(_context.Movies.Include(m => m.Genre).ToList().Select(Mapper.Map<Movie, MovieDto>));
+            var moviesQuery = _context.Movies
+                .Include(m => m.Genre);
+
+            if (!String.IsNullOrWhiteSpace(query))
+            {
+                moviesQuery = moviesQuery.Where(m => m.Name.Contains(query));
+            }
+            var movies = moviesQuery
+                .ToList()
+                .Select(Mapper.Map<Movie, MovieDto>);
+
+            return Ok(movies);
         }
 
         // GET /api/movies/1
