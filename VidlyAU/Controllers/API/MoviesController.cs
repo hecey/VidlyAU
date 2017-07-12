@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using AutoMapper;
 using VidlyAU.DTOs;
@@ -38,9 +36,9 @@ namespace VidlyAU.Controllers.API
         }
 
         // GET /api/movies/1
-        public IHttpActionResult GetMovie(int Id)
+        public IHttpActionResult GetMovie(int id)
         {
-            var movie = _context.Movies.ToList().SingleOrDefault(m => m.Id == Id);
+            var movie = _context.Movies.ToList().SingleOrDefault(m => m.Id == id);
 
             if (movie == null)
             {
@@ -75,21 +73,21 @@ namespace VidlyAU.Controllers.API
         // PUT /api/movies/1
         [HttpPut]
         [Authorize(Roles = RoleName.CanManageMovies)]
-        public void  UpdateMovie(int Id, MovieDto movieDto)
+        public void  UpdateMovie(int id, MovieDto movieDto)
         {
             if (!ModelState.IsValid)
             {
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
 
-            var movieInDB = _context.Movies.ToList().SingleOrDefault(m => m.Id == Id);
+            var movieInDb = _context.Movies.ToList().SingleOrDefault(m => m.Id == id);
 
-            if (movieInDB == null)
+            if (movieInDb == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
-            Mapper.Map<MovieDto, Movie>(movieDto, movieInDB);
+            Mapper.Map(movieDto, movieInDb);
 
             _context.SaveChanges();
 
@@ -98,9 +96,9 @@ namespace VidlyAU.Controllers.API
         //DELETE /api/movies/1
         [HttpDelete]
         [Authorize(Roles = RoleName.CanManageMovies)]
-        public void DeleteMovie(int Id)
+        public void DeleteMovie(int id)
         {
-            var movieInDb = _context.Movies.ToList().SingleOrDefault(m => m.Id == Id);
+            var movieInDb = _context.Movies.ToList().SingleOrDefault(m => m.Id == id);
 
             if (movieInDb == null)
             {
