@@ -23,7 +23,7 @@ namespace VidlyAU.Controllers.API
         {
             if (rentalDto.MoviesIds.Count == 0)
             {
-                return BadRequest("No movies Ids has been giveng");
+                return BadRequest("No movies Ids has been giving");
             }
 
             var customer = _context.Customers.ToList().SingleOrDefault(c=>c.Id == rentalDto.CustomerId);
@@ -62,8 +62,16 @@ namespace VidlyAU.Controllers.API
 
             }
 
-            
-            _context.SaveChanges();
+            try
+            {
+                _context.SaveChanges();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
 
             return Ok();
         }

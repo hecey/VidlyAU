@@ -14,6 +14,7 @@ namespace VidlyAU
                         "~/Scripts/bootbox.js",
                         "~/Scripts/respond.js",
                         "~/Scripts/datatables/jquery.datatables.js",
+                        "~/Scripts/toastr.js",
                         "~/Scripts/datatables/datatables.bootstrap.js",
                         "~/Scripts/typeahead.bundle.js"
                         ));
@@ -32,6 +33,7 @@ namespace VidlyAU
                       "~/Content/bootstrap-lumen.css",
                       "~/Content/typeahead.css",
                       "~/Content/datatables/css/datatables.bootstrap.css",
+                      "~/Content/toastr.css",
                       "~/Content/site.css"));
         }
     }
